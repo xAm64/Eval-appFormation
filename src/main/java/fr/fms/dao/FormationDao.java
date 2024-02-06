@@ -5,6 +5,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
+import javax.naming.spi.DirStateFactory.Result;
+
 import fr.fms.entities.Formation;
 
 public class FormationDao implements Dao<Formation>{
@@ -35,7 +38,22 @@ public class FormationDao implements Dao<Formation>{
 
 	@Override
 	public ArrayList<Formation> readAll() {
-		// TODO Auto-generated method stub
+		ArrayList<Formation> formations = new ArrayList<Formation>();
+		String requestSql = "SELET * FROM Formation;";
+		try (Statement statement = connection.createStatement()){
+			try (ResultSet resultSet = statement.executeQuery(requestSql)){
+				while (resultSet.next()) {
+					int idFormation = resultSet.getInt(1);
+					String titre = resultSet.getString(2);
+					Double prix = resultSet.getDouble(3);
+					String description = resultSet.getString(4);
+					String lieu = resultSet.getString(5);
+					formations.add(new Formation(idFormation, titre, prix , description, lieu));
+				}
+			}
+		} catch (SQLException er) {
+			er.printStackTrace();
+		}
 		return null;
 	}
 
