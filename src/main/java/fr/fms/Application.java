@@ -18,6 +18,9 @@ public class Application {
 		do {
 			choise = writeNumber(notice, scn);
 			switch (choise) {
+			case 0:
+				System.out.println("Sortie du programme");
+				break;
 			case 1:
 				readAllFormations();
 				break;
@@ -26,7 +29,7 @@ public class Application {
 				break;
 			}
 		} while (choise != 0);
-		System.out.println("Fin du programme à bientôt");
+		System.out.println("À bientôt");
 	}
 	
 	//Méthodes

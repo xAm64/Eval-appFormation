@@ -20,19 +20,19 @@ public class BddConnect {
 
 	private BddConnect() {
 		try {
-			//getConfigFile(); //plus tard			
-			Class.forName("org.mariadb.jdbc.Driver");	
-			connection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/FormationApp","root","fms2024");				 
+			getConfigFile();	
+			Class.forName(driver);//("org.mariadb.jdbc.Driver");	
+			connection = DriverManager.getConnection(url, login, password);//("jdbc:mariadb://localhost:3306/FormationApp","root","fms2024");		 
 		}			
 		catch (ClassNotFoundException | SQLException e) {
 			logger.severe("connection pb : " + e.getMessage());
 		}
-		/*catch (FileNotFoundException e) {
+		catch (FileNotFoundException e) {
 			logger.severe("config.properties not found:" + e.getMessage());
 		} 
 		catch (IOException e) {
 			logger.severe("I/O pb : " + e.getMessage());
-		} */
+		}
 		catch (Exception e) {
 			logger.severe("pb : " + e.getMessage());
 		}
@@ -43,8 +43,6 @@ public class BddConnect {
 		return connection;
 	}
 	
-	//plus tard
-	/*
 	private static void getConfigFile() throws FileNotFoundException, IOException {
 		Properties props = new Properties();		
 		try (FileInputStream fis = new FileInputStream("files/config.properties")){
@@ -60,5 +58,4 @@ public class BddConnect {
 		password = props.getProperty("db.password");
 		
 	}
-	*/
 }
