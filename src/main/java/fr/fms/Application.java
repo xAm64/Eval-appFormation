@@ -50,6 +50,9 @@ public class Application {
 	//lire toutes les formations
 	public static void readAllFormations() {
 		FormationDao formationDao = new FormationDao();
-		System.out.println(formationDao);
+		ArrayList<Formation> formations = formationDao.readAll();
+		for (Formation f: formations){
+			System.out.println("Id de la formation: "+f.getIdFormation()+", titre: "+f.getTitre()+", prix: "+f.getPrix()+", Description: "+f.getDescription()+", Lieu: "+f.getLieu()+".");
+		}
 	}
 }

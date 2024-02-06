@@ -21,8 +21,8 @@ public class BddConnect {
 	private BddConnect() {
 		try {
 			//getConfigFile(); //plus tard			
-			Class.forName(driver);	
-			connection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/Shop","root","fms2024");				 
+			Class.forName("org.mariadb.jdbc.Driver");	
+			connection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/FormationApp","root","fms2024");				 
 		}			
 		catch (ClassNotFoundException | SQLException e) {
 			logger.severe("connection pb : " + e.getMessage());

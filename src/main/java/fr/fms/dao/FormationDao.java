@@ -39,7 +39,7 @@ public class FormationDao implements Dao<Formation>{
 	@Override
 	public ArrayList<Formation> readAll() {
 		ArrayList<Formation> formations = new ArrayList<Formation>();
-		String requestSql = "SELET * FROM Formation;";
+		String requestSql = "SELECT * FROM Formation;";
 		try (Statement statement = connection.createStatement()){
 			try (ResultSet resultSet = statement.executeQuery(requestSql)){
 				while (resultSet.next()) {
@@ -54,7 +54,7 @@ public class FormationDao implements Dao<Formation>{
 		} catch (SQLException er) {
 			er.printStackTrace();
 		}
-		return null;
+		return formations;
 	}
 
 }
