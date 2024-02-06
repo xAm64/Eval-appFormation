@@ -36,36 +36,21 @@ public class CommandeDao implements Dao<Commande> {
 
 	//update
 	@Override
-	public boolean update(Article obj) {
-		/*
-		String str = "";
-		try (PreparedStatement ps = connection.prepareStatement(str)){				
-			if( ps.executeUpdate() == 1)	return true;
-		} catch (SQLException e) {
-			logger.severe("pb sql sur la mise à jour d'un article " + e.getMessage());
-		} 
-		*/
+	public boolean update(Commande obj) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 
 	//delete
 	@Override
-	public boolean delete(Article obj) {
-		/*
-		try (Statement statement = connection.createStatement()){
-			String str = "";									
-			statement.executeUpdate(str);		
-			return true;
-		} catch (SQLException e) {
-			message
-		} 	
-		*/
+	public boolean delete(Commande obj) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 	
 	//read all
 	@Override
-	public ArrayList<Article> readAll() {
+	public ArrayList<Commande> readAll() {
 		/*
 		ArrayList<Commande>  commandes = new ArrayList<Commande>();
 		String strSql = "SELECT * FROM T_Articles";		
@@ -85,4 +70,5 @@ public class CommandeDao implements Dao<Commande> {
 		*/
 		return null;
 	}
+
 }
