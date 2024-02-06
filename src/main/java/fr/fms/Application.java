@@ -1,11 +1,55 @@
 package fr.fms;
 
+import java.util.ArrayList;
 import java.util.Scanner;
-
-import javax.sound.midi.VoiceStatus;
+import fr.fms.dao.*;
+import fr.fms.entities.*;
 
 public class Application {
+	
+	
 	public static void main(String[] args) {
-		System.out.println("test");
+		Scanner scn = new Scanner(System.in);
+		System.out.println("Bienvenue dans l'application: Vente de formations");
+		String notice = "que voulez-vous faire ?\n"+
+				"0: Sortir\n"+
+				"1: consulter les formations\n";
+		int choise = 0;
+		do {
+			choise = writeNumber(notice, scn);
+			switch (choise) {
+			case 1:
+				readAllFormations();
+				break;
+			default:
+				System.out.println("Cette option n'existe pas");
+				break;
+			}
+		} while (choise != 0);
+		System.out.println("Fin du programme à bientôt");
+	}
+	
+	//Méthodes
+	//récupère un nombre entier
+	public static int writeNumber(String instruction, Scanner scn) {
+		boolean reset = true;
+		int x = 0;
+		while (reset) {
+			System.out.println(instruction);
+			try {
+				x = scn.nextInt();
+				return x;
+			}catch (Exception e) {
+				System.out.println("ceci n'est pas un chiffre: "+e);
+				scn.next();
+			}
+		};
+		return 0;
+	}
+	
+	//lire toutes les formations
+	public static void readAllFormations() {
+		FormationDao formationDao = new FormationDao();
+		System.out.println(formationDao);
 	}
 }
