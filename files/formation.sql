@@ -20,7 +20,6 @@ CREATE TABLE Utilisateur(
 
 CREATE TABLE Commande(
    idCommande 	INT unsigned PRIMARY KEY AUTO_INCREMENT,
-   dateCommande DATE NOT NULL,
    prixTotal 	FLOAT(8) NOT NULL,
    idFormation 	INT unsigned NOT NULL,
    idUser 		INT unsigned NOT NULL,
