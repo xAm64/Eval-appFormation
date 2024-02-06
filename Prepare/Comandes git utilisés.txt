@@ -1,3 +1,9 @@
 git clone https://github.com/xAm64/Eval-appFormation.git
 
+git status
+
+git add ...fichier et dossiers ...
+
 git commit -m "ajout des diagrammes"
+
+git push
