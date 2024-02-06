@@ -1,0 +1,8 @@
+Préparer les Diagrammes (Utilisation, Class, Sequence).
+Préparer Éclipse.
+Préparer SQL + tests.
+Préparer Structure du code (profite de l'énergie matinale).
+Préparer DAO Élements (profite de l'érgie matinale).
+Préparer connexion BDD.
+Connecter Eclipse <-> MariaDB.
+Coder les éléments (selon énergie restante).
