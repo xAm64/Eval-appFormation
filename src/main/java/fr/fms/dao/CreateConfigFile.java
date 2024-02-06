@@ -11,10 +11,10 @@ public class CreateConfigFile {
 		try (OutputStream output = new FileOutputStream("files/config.properties")) {
 
             Properties prop = new Properties();
-            prop.setProperty("db.driver.class", "org.mariadb.jdbc.Driver");
-            prop.setProperty("db.url", "jdbc:mariadb://localhost:3306/Shop");
+            prop.setProperty("db.driver", "org.mariadb.jdbc.Driver");
+            prop.setProperty("db.url","jdbc:mariadb://localhost:3306/FormationApp");
             prop.setProperty("db.login", "root");
-            prop.setProperty("db.password", "fms2024");
+            prop.setProperty("db.password","fms2024");
 
             prop.store(output, null);
 
