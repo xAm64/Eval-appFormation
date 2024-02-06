@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-02-06T07:50:50.393Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:122.0) Gecko/20100101 Firefox/122.0" etag="XCJgW63VGcySAw5SKozD" version="22.1.21" type="device">
+<mxfile host="app.diagrams.net" modified="2024-02-06T09:18:26.109Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:122.0) Gecko/20100101 Firefox/122.0" etag="KRArS6zyAUormAzBByle" version="22.1.21" type="device">
   <diagram name="Page-1" id="yiWAWElRlPeZ8IBewo0c">
-    <mxGraphModel dx="2074" dy="792" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1434" dy="792" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -10,10 +10,10 @@
         <mxCell id="F_b5OSS82q84xvp6gtbJ-2" value="&lt;div&gt;Administrateur&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
           <mxGeometry x="110" y="440" width="30" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="F_b5OSS82q84xvp6gtbJ-4" value="Parcourir les formations" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="F_b5OSS82q84xvp6gtbJ-4" value="Rechercher une formation" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="280" y="130" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="F_b5OSS82q84xvp6gtbJ-5" value="Parcourir les formations" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="F_b5OSS82q84xvp6gtbJ-5" value="Séléctionne une formation" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="280" y="260" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="F_b5OSS82q84xvp6gtbJ-6" value="Ajouter une formation" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
