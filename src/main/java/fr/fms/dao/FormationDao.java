@@ -59,7 +59,13 @@ public class FormationDao implements Dao<Formation>{
 
 	@Override
 	public boolean delete(Formation obj) {
-		// TODO Auto-generated method stub
+		try (Statement statement = connection.createStatement()){
+			String request = "DELETE FROM Formation WHERE idFormation = "+obj.getIdFormation()+";";
+			statement.executeUpdate(request);
+			return true;
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
