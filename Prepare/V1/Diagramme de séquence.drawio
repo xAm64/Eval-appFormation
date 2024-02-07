@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-02-07T08:18:25.834Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:122.0) Gecko/20100101 Firefox/122.0" etag="JiXn9_XVQ-Dd5vs583YQ" version="23.1.1" type="device">
+<mxfile host="app.diagrams.net" modified="2024-02-07T09:01:33.630Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:122.0) Gecko/20100101 Firefox/122.0" etag="jm9PXG5c7Wv6QH2EN0NI" version="23.1.1" type="device">
   <diagram name="Page-1" id="2YBvvXClWsGukQMizWep">
     <mxGraphModel dx="1434" dy="792" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -84,7 +84,7 @@
             <mxPoint x="115" y="200" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="z25Uq1P8lbXZ6_uPKflM-15" value="Procède à l&#39;achat" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+        <mxCell id="z25Uq1P8lbXZ6_uPKflM-15" value="Commande une formation" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
           <mxGeometry x="0.0204" relative="1" as="geometry">
             <mxPoint x="360" y="280" as="targetPoint" />
             <Array as="points">

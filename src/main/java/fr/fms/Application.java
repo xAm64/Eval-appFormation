@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import fr.fms.dao.*;
 import fr.fms.entities.*;
+import fr.fms.CreateClient;
 
 public class Application {
 	
@@ -54,7 +55,7 @@ public class Application {
 		return 0;
 	}
 	
-	//lire toutes les formations
+	//Choix 1: voir toutes les formations.
 	public static void readAllFormations() {
 		FormationDao formationDao = new FormationDao();
 		try {
@@ -67,12 +68,30 @@ public class Application {
 		}
 		
 	}
-	
+	//Choix2: lire une formation.
 	public static void readOneFormation(Scanner scn) {
+		//affiche les instructions au client
 		String instruction = "Saisir l'ID de la formation à afficher";
+		//récupère l'id
+		int idFormation = writeNumber(instruction, scn);
+		//créer uen formation vierge
+		FormationDao formationDao = new FormationDao();
+		//récupère les informations de la formation demandée.
+		Formation formation = formationDao.read(idFormation);
+		//affiche la formation demandée.
+		System.out.println("La formation numéro: "+formation.getIdFormation()+" est "+formation.getTitre()+" coûte "+formation.getPrix()+". Sa description est: "+formation.getDescription()+". Son lieu est: "+formation.getLieu()+".");
+	}
+	
+	public static void commandFormation(Scanner scn) {
+		//récupère la formation demandé à l'aide de la méthode 2.
+		String instruction = "Saisir l'ID de la formation que vous souhaitez commander";
 		int idFormation = writeNumber(instruction, scn);
 		FormationDao formationDao = new FormationDao();
-		Formation formation = formationDao.read(idFormation);
-		System.out.println("La formation numéro: "+formation.getIdFormation()+" est "+formation.getTitre()+" coûte "+formation.getPrix()+". Sa description est: "+formation.getDescription()+". Son lieu est: "+formation.getLieu()+".");
+		Formation formationCommande = formationDao.read(idFormation);
+		//récupére la class pour créer un utilisateur
+		CreateClient newClient = new CreateClient();
+		//récupére un nouvel utilisateur.
+		Utilisateur newUser = newClient.recupCoordonates(scn);
+		//créer utilisateur
 	}
 }
