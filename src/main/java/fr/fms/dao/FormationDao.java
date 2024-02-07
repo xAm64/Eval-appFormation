@@ -20,7 +20,15 @@ public class FormationDao implements Dao<Formation>{
 
 	@Override
 	public Formation read(int id) {
-		// TODO Auto-generated method stub
+		try (Statement statement = connection.createStatement()){
+			String request = "SELECT * FROM Formation where idFormation = "+id+";";
+			ResultSet rs = statement.executeQuery(request);
+			if (rs.next()) {
+				return new Formation(rs.getString(2), rs.getDouble(3), rs.getString(4), rs.getString(5));
+			}
+		}catch (SQLException er) {
+			er.printStackTrace();
+		}
 		return null;
 	}
 

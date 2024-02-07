@@ -13,7 +13,8 @@ public class Application {
 		System.out.println("Bienvenue dans l'application: Vente de formations");
 		String notice = "que voulez-vous faire ?\n"+
 				"0: Sortir\n"+
-				"1: consulter les formations\n";
+				"1: Consulter les formations\n"+
+				"2: Afficher une formation";
 		int choise = 0;
 		do {
 			choise = writeNumber(notice, scn);
@@ -25,7 +26,7 @@ public class Application {
 				readAllFormations();
 				break;
 			case 2:
-				readOneFormation();
+				readOneFormation(scn);
 				break;
 			default:
 				System.out.println("Cette option n'existe pas");
@@ -56,13 +57,22 @@ public class Application {
 	//lire toutes les formations
 	public static void readAllFormations() {
 		FormationDao formationDao = new FormationDao();
-		ArrayList<Formation> formations = formationDao.readAll();
-		for (Formation f: formations){
-			System.out.println("Id de la formation: "+f.getIdFormation()+", titre: "+f.getTitre()+", prix: "+f.getPrix()+", Description: "+f.getDescription()+", Lieu: "+f.getLieu()+".");
+		try {
+			ArrayList<Formation> formations = formationDao.readAll();
+			for (Formation f: formations){
+				System.out.println("Id de la formation: "+f.getIdFormation()+", titre: "+f.getTitre()+", prix: "+f.getPrix()+", Description: "+f.getDescription()+", Lieu: "+f.getLieu()+".");
+			}
+		} catch (NullPointerException e) {
+			System.out.println("Cette formation n'existe pas");
 		}
+		
 	}
 	
-	public static void readOneFormation() {
-		System.out.println("Faire une formation");
+	public static void readOneFormation(Scanner scn) {
+		String instruction = "Saisir l'ID de la formation à afficher";
+		int idFormation = writeNumber(instruction, scn);
+		FormationDao formationDao = new FormationDao();
+		Formation formation = formationDao.read(idFormation);
+		System.out.println("La formation numéro: "+formation.getIdFormation()+" est "+formation.getTitre()+" coûte "+formation.getPrix()+". Sa description est: "+formation.getDescription()+". Son lieu est: "+formation.getLieu()+".");
 	}
 }
