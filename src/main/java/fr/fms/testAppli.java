@@ -1,5 +1,7 @@
 package fr.fms;
 
+import java.util.ArrayList;
+
 import fr.fms.dao.FormationDao;
 import fr.fms.dao.UtilisateurDao;
 import fr.fms.entities.Formation;
@@ -52,6 +54,22 @@ public class testAppli {
 		/*
 		Utilisateur mohamed = new Utilisateur(1, "Mohamed", "mohamed@gmail.com");
 		uDao.update(mohamed);
+		*/
+		//test OK
+		
+		//select all
+		/*
+		ArrayList<Utilisateur> users = uDao.readAll();
+		for (Utilisateur u : users) {
+			System.out.println("Id User: "+u.getIdUser()+" name: "+u.getNom()+" email: "+u.getEmail()+".");
+		}
+		*/
+		//test OK
+		
+		//delete
+		/*
+		Utilisateur mohamed = new Utilisateur(1, "Mohamed", "mohamed@gmail.com");
+		uDao.delete(mohamed);
 		*/
 		//test OK
 	}
