@@ -35,7 +35,24 @@ public class testAppli {
 		//Utilisateur
 		UtilisateurDao uDao = new UtilisateurDao();
 		//create
+		/*
 		Utilisateur mohamed = new Utilisateur("Mohamed", "mohamed@email.com");
 		uDao.create(mohamed);
+		*/
+		//test OK
+		
+		//read
+		/*
+		Utilisateur mohamed = uDao.read(1);
+		System.out.println("Nom: "+mohamed.getNom()+" email: "+mohamed.getEmail()+".");
+		*/
+		//test OK
+		
+		//update
+		/*
+		Utilisateur mohamed = new Utilisateur(1, "Mohamed", "mohamed@gmail.com");
+		uDao.update(mohamed);
+		*/
+		//test OK
 	}
 }

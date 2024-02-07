@@ -41,7 +41,7 @@ public class UtilisateurDao implements Dao<Utilisateur> {
 
 	@Override
 	public boolean update(Utilisateur obj) {
-		String request = "UPDATE FROM Utilisateur SET nom = ?, email = ? WHERE idUser = ?;";
+		String request = "UPDATE Utilisateur SET nom = ?, email = ? WHERE idUser = ?;";
 		try (PreparedStatement ps = connection.prepareStatement(request)){
 			ps.setString(1, obj.getNom());
 			ps.setString(2, obj.getEmail());
