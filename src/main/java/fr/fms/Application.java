@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import fr.fms.dao.*;
 import fr.fms.entities.*;
-import fr.fms.CreateClient;
+import fr.fms.*;
 
 public class Application {
 	
@@ -15,7 +15,8 @@ public class Application {
 		String notice = "que voulez-vous faire ?\n"+
 				"0: Sortir\n"+
 				"1: Consulter les formations\n"+
-				"2: Afficher une formation";
+				"2: Afficher une formation\n"+
+				"3: Commander une formation";
 		int choise = 0;
 		do {
 			choise = writeNumber(notice, scn);
@@ -28,6 +29,9 @@ public class Application {
 				break;
 			case 2:
 				readOneFormation(scn);
+				break;
+			case 3:
+				commandFormation(scn);
 				break;
 			default:
 				System.out.println("Cette option n'existe pas");
@@ -87,13 +91,22 @@ public class Application {
 		String instruction = "Saisir l'ID de la formation que vous souhaitez commander";
 		int idFormation = writeNumber(instruction, scn);
 		FormationDao formationDao = new FormationDao();
-		Formation formationCommande = formationDao.read(idFormation);
+		Formation formation = formationDao.read(idFormation);
 		//récupére la class pour créer un utilisateur
 		CreateClient newClient = new CreateClient();
 		//récupére un nouvel utilisateur.
-		Utilisateur newUser = newClient.recupCoordonates(scn);
+		Utilisateur client = newClient.recupCoordonates(scn);
+		//une fois créer j'ajoute l'objet
 		UtilisateurDao newUserDao = new UtilisateurDao();
-		newUserDao.create(newUser);
-		//créer la commande
+		//j'ajoute le client à la base
+		newUserDao.create(client);
+		//je créer la commande
+		CommandeDao commandeDao = new CommandeDao();
+		//je construit la commande avec les jointures
+		CreateCommande createCommande = new CreateCommande(formation, client);
+		Commande commande = createCommande.createCommande(formation, client);
+		//j'envoie la commande en BDD avec ses liaisons
+		commandeDao.create(commande);
+		
 	}
 }
