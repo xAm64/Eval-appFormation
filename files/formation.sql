@@ -22,9 +22,7 @@ CREATE TABLE Commande(
    idCommande 	INT unsigned PRIMARY KEY AUTO_INCREMENT,
    prixTotal 	FLOAT(8) NOT NULL,
    idFormation 	INT unsigned NOT NULL,
-   idUser 		INT unsigned NOT NULL,
-   FOREIGN KEY(idFormation) REFERENCES Formation(idFormation),
-   FOREIGN KEY(idUser) REFERENCES Utilisateur(idUser)
+   idUser 		INT unsigned NOT NULL
 );
 
 -- Ajouter des formations dans la base
