@@ -43,7 +43,17 @@ public class FormationDao implements Dao<Formation>{
 
 	@Override
 	public boolean update(Formation obj) {
-		// TODO Auto-generated method stub
+		String request = "UPDATE Formation SET titre = ?, prix = ?, description = ?, lieu = ? WHERE idFormation = ?;";
+		try (PreparedStatement ps = connection.prepareStatement(request)){
+			ps.setString(1, obj.getTitre());
+			ps.setDouble(2, obj.getPrix());
+			ps.setString(3, obj.getDescription());
+			ps.setString(4, obj.getLieu());
+			ps.setInt(5, obj.getIdFormation());
+			if( ps.executeUpdate() == 1)	return true;
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
