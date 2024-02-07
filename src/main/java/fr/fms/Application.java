@@ -24,6 +24,9 @@ public class Application {
 			case 1:
 				readAllFormations();
 				break;
+			case 2:
+				readOneFormation();
+				break;
 			default:
 				System.out.println("Cette option n'existe pas");
 				break;
@@ -57,5 +60,9 @@ public class Application {
 		for (Formation f: formations){
 			System.out.println("Id de la formation: "+f.getIdFormation()+", titre: "+f.getTitre()+", prix: "+f.getPrix()+", Description: "+f.getDescription()+", Lieu: "+f.getLieu()+".");
 		}
+	}
+	
+	public static void readOneFormation() {
+		System.out.println("Faire une formation");
 	}
 }
