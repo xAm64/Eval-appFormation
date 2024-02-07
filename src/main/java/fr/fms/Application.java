@@ -92,6 +92,8 @@ public class Application {
 		CreateClient newClient = new CreateClient();
 		//récupére un nouvel utilisateur.
 		Utilisateur newUser = newClient.recupCoordonates(scn);
-		//créer utilisateur
+		UtilisateurDao newUserDao = new UtilisateurDao();
+		newUserDao.create(newUser);
+		//créer la commande
 	}
 }
