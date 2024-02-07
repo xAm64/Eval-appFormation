@@ -10,7 +10,7 @@ public class CommandeDao implements Dao<Commande> {
 
 	@Override
 	public boolean create(Commande obj) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 

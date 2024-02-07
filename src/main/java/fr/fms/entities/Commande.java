@@ -11,19 +11,19 @@ public class Commande {
 	
 	//Constructeurs
 	//Complet
-	public Commande(int idCommande, double prixTotal, int idUser, int idCommande) {
+	public Commande(int idCommande, double prixTotal, int idUser, int idFormation) {
 		super();
 		this.idCommande = idCommande;
 		this.prixTotal = prixTotal;
 		this.idUser = idUser;
-		this.idCommande = idCommande;
+		this.idCommande = idFormation;
 	}
 	//Minimum
-	public Commande(double prixTotal, int idUser, int idCommande) {
+	public Commande(double prixTotal, int idUser, int idFormation) {
 		super();
 		this.prixTotal = prixTotal;
 		this.idUser = idUser;
-		this.idCommande = idCommande;
+		this.idCommande = idFormation;
 	}
 	
 	//Getters et Setters
