@@ -14,7 +14,16 @@ public class FormationDao implements Dao<Formation>{
 
 	@Override
 	public boolean create(Formation obj) {
-		// TODO Auto-generated method stub
+		String request = "INSERT INTO Formation (titre, prix, description, lieu) VALUES (?,?,?,?);";
+		try (PreparedStatement ps = connection.prepareStatement(request)){
+			ps.setString(1, obj.getTitre());
+			ps.setDouble(2, obj.getPrix());
+			ps.setString(3, obj.getDescription());
+			ps.setString(4, obj.getLieu());
+			if( ps.executeUpdate() == 1)	return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
