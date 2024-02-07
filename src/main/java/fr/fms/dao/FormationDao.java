@@ -14,13 +14,18 @@ public class FormationDao implements Dao<Formation>{
 
 	@Override
 	public boolean create(Formation obj) {
+		//Écris la requête SQL
 		String request = "INSERT INTO Formation (titre, prix, description, lieu) VALUES (?,?,?,?);";
+		//prépare la requête.
 		try (PreparedStatement ps = connection.prepareStatement(request)){
+			//remplace les ? par les données (pour éviter une injection).
 			ps.setString(1, obj.getTitre());
 			ps.setDouble(2, obj.getPrix());
 			ps.setString(3, obj.getDescription());
 			ps.setString(4, obj.getLieu());
+			//Execute la requête, si ça réussi ça envoie true
 			if( ps.executeUpdate() == 1)	return true;
+		//si un erreur SQL on l'écris.
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -29,9 +34,13 @@ public class FormationDao implements Dao<Formation>{
 
 	@Override
 	public Formation read(int id) {
+		//prépare la requête
 		try (Statement statement = connection.createStatement()){
+			//écrire la requête
 			String request = "SELECT * FROM Formation where idFormation = "+id+";";
+			//exécute la requête
 			ResultSet rs = statement.executeQuery(request);
+			//si donne résultat, le renvoie
 			if (rs.next()) {
 				return new Formation(rs.getString(2), rs.getDouble(3), rs.getString(4), rs.getString(5));
 			}

@@ -1,12 +1,15 @@
 package fr.fms;
 
 import fr.fms.dao.FormationDao;
+import fr.fms.dao.UtilisateurDao;
 import fr.fms.entities.Formation;
+import fr.fms.entities.Utilisateur;
 
 public class testAppli {
 
 	public static void main(String[] args) {
-		FormationDao fDao = new FormationDao();
+		//formation
+		//FormationDao fDao = new FormationDao();
 		//Crud test
 		//create
 		/*
@@ -28,5 +31,11 @@ public class testAppli {
 		fDao.delete(javaScript);
 		*/
 		//Test OK
+		
+		//Utilisateur
+		UtilisateurDao uDao = new UtilisateurDao();
+		//create
+		Utilisateur mohamed = new Utilisateur("Mohamed", "mohamed@email.com");
+		uDao.create(mohamed);
 	}
 }
