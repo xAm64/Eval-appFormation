@@ -110,6 +110,5 @@ public class Application {
 		Commande commande = createCommande.createCommande(formationCommandee, registerClient);
 		//j'envoie la commande en BDD avec ses liaisons
 		commandeDao.create(commande);
-		
 	}
 }

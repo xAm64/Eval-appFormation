@@ -2,8 +2,10 @@ package fr.fms;
 
 import java.util.ArrayList;
 
+import fr.fms.dao.CommandeDao;
 import fr.fms.dao.FormationDao;
 import fr.fms.dao.UtilisateurDao;
+import fr.fms.entities.Commande;
 import fr.fms.entities.Formation;
 import fr.fms.entities.Utilisateur;
 
@@ -35,7 +37,7 @@ public class testAppli {
 		//Test OK
 		
 		//Utilisateur
-		UtilisateurDao uDao = new UtilisateurDao();
+		//UtilisateurDao uDao = new UtilisateurDao();
 		//create
 		/*
 		Utilisateur mohamed = new Utilisateur("Mohamed", "mohamed@email.com");
@@ -72,5 +74,13 @@ public class testAppli {
 		uDao.delete(mohamed);
 		*/
 		//test OK
+		
+		//test des commandes
+		CommandeDao cDao = new CommandeDao();
+		//read
+		/*
+		Commande commandeDeManex = cDao.read(1);
+		System.out.println(commandeDeManex);
+		*/
 	}
 }

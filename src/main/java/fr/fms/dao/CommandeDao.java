@@ -28,9 +28,9 @@ public class CommandeDao implements Dao<Commande> {
 	@Override
 	public Commande read(int id) {
 		try (Statement statement = connection.createStatement()){
-			String request = "SELECT * FROM Commande\n;"+
-					"JOIN Formation ON Commande.idFormation = Formation.idFormation\n"+
-					"JOIN Utilisateur ON Commande.idUser = Utilisateur.idUser\n"+
+			String request = "SELECT * FROM Commande \n;"+
+					"JOIN Formation ON Commande.idFormation = Formation.idFormation \n"+
+					"JOIN Utilisateur ON Commande.idUser = Utilisateur.idUser \n"+
 					"WHERE idCommande = id;";
 			ResultSet rs = statement.executeQuery(request);
 			if (rs.next()) {
