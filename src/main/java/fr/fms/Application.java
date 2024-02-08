@@ -98,17 +98,16 @@ public class Application {
 		//récupére la class pour créer un utilisateur
 		CreateClient newClient = new CreateClient();
 		//récupére un nouvel utilisateur.
-		Utilisateur client = newClient.recupCoordonates(scn);
+		Utilisateur registerClient = newClient.recupCoordonates(scn);
 		//une fois créer j'ajoute l'objet
 		UtilisateurDao newUserDao = new UtilisateurDao();
 		//j'ajoute le client à la base
-		newUserDao.create(client);
-		Utilisateur clientCommandee = newClient.foundUser(client);
+		newUserDao.create(registerClient);
 		//je créer la commande
 		CommandeDao commandeDao = new CommandeDao();
 		//je construit la commande avec les jointures
-		CreateCommande createCommande = new CreateCommande(formationCommandee, clientCommandee);
-		Commande commande = createCommande.createCommande(formationCommandee, clientCommandee);  //# crash ici (null pointer exeption, doit récupérer l'ID
+		CreateCommande createCommande = new CreateCommande(formationCommandee, registerClient);
+		Commande commande = createCommande.createCommande(formationCommandee, registerClient);
 		//j'envoie la commande en BDD avec ses liaisons
 		commandeDao.create(commande);
 		

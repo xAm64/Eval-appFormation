@@ -18,8 +18,13 @@ public class CreateClient {
 			String iAgree = scn.next();
 			iAgree = iAgree.toLowerCase();
 			if (iAgree.equals("oui") || iAgree.equals("o")) {
+				ArrayList<Utilisateur> users = new ArrayList<Utilisateur>();
+				UtilisateurDao ud = new UtilisateurDao();
+				users = ud.readAll();
+				int idUser = users.size()+1;
+				Utilisateur registerClient = new Utilisateur(idUser, newClient.getNom(), newClient.getEmail());
 				ok = true;
-				return newClient;
+				return registerClient;
 			}
 		} while (!ok);
 		return null;
@@ -39,22 +44,6 @@ public class CreateClient {
 			}
 		}
 		return null;
-	}
-	
-	public Utilisateur foundUser(Utilisateur user) {
-		UtilisateurDao ud = new UtilisateurDao();
-		ArrayList<Utilisateur> users = ud.readAll();
-		try {
-			for (int i = (users.size()-1); i < 0; i--) {
-				Utilisateur x = users.get(i);
-				if (x.getEmail() == user.getEmail()) {
-					user.setIdUser(x.getIdUser());
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return user;
 	}
 
 }
