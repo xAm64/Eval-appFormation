@@ -83,5 +83,15 @@ public class testAppli {
 		System.out.println(commandeDeManex);
 		*/
 		//TestOK
+		
+		//update
+		/*
+		 * Comme je suis bon commerçant, j'augmente le prix :p
+		Commande testUpdate = new Commande(1, 3019.79 , 2, 1);
+		cDao.update(testUpdate);
+		*/
+		//test OK
+		
+		
 	}
 }
