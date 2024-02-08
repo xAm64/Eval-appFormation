@@ -92,6 +92,21 @@ public class testAppli {
 		*/
 		//test OK
 		
+		//delete
+		/*
+		//en français car envirennement de test et non envoyé en prod.
+		Commande mohamedAnnuleSaCommande = new Commande(2, 2775.85 , 2, 2);
+		cDao.delete(mohamedAnnuleSaCommande);
+		*/
+		//test OK
 		
+		//selectAll
+		/*
+		ArrayList<Commande> commandes = cDao.readAll();
+		for (Commande c : commandes) {
+			System.out.println("Id commande: "+c.getIdCommande()+" , prix total: "+c.getPrixTotal()+" , id Formation"+c.getIdFormation()+" , id client"+c.getIdUser()+" .");
+		}
+		*/
+		//test OK
 	}
 }

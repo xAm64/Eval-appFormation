@@ -72,9 +72,9 @@ public class CommandeDao implements Dao<Commande> {
 	@Override
 	public ArrayList<Commande> readAll() {
 		ArrayList<Commande> commandes = new ArrayList<Commande>();
-		String request = "SELECT * FROM Commande \r\n"
-				+ "JOIN Formation ON Commande.idFormation = Formation.idFormation \r\n"
-				+ "JOIN Utilisateur ON Commande.idUser = Utilisateur.idUser ;";
+		String request = "SELECT * FROM Commande \r\n"+
+				"JOIN Formation ON Commande.idFormation = Formation.idFormation \r\n"+
+				"JOIN Utilisateur ON Commande.idUser = Utilisateur.idUser ;";
 		try (Statement statement = connection.createStatement()){
 			try (ResultSet rs = statement.executeQuery(request)){
 				while (rs.next()) {
@@ -88,7 +88,7 @@ public class CommandeDao implements Dao<Commande> {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return commandes;
 	}
 
 }
