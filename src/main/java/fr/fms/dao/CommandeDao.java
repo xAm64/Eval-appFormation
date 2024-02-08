@@ -28,10 +28,10 @@ public class CommandeDao implements Dao<Commande> {
 	@Override
 	public Commande read(int id) {
 		try (Statement statement = connection.createStatement()){
-			String request = "SELECT * FROM Commande \n;"+
-					"JOIN Formation ON Commande.idFormation = Formation.idFormation \n"+
-					"JOIN Utilisateur ON Commande.idUser = Utilisateur.idUser \n"+
-					"WHERE idCommande = id;";
+			String request = "SELECT * FROM Commande \r\n"
+					+ "JOIN Formation ON Commande.idFormation = Formation.idFormation \r\n"
+					+ "JOIN Utilisateur ON Commande.idUser = Utilisateur.idUser \r\n"
+					+ "WHERE idCommande = "+id+";";
 			ResultSet rs = statement.executeQuery(request);
 			if (rs.next()) {
 				return new Commande(rs.getDouble(2), rs.getInt(3), rs.getInt(4));
@@ -72,9 +72,9 @@ public class CommandeDao implements Dao<Commande> {
 	@Override
 	public ArrayList<Commande> readAll() {
 		ArrayList<Commande> commandes = new ArrayList<Commande>();
-		String request = "SELECT * FROM Commande\n"+
-				"JOIN Formation ON Commande.idFormation = Formation.idFormation\n"+
-				"JOIN Utilisateur ON Commande.idUser = Utilisateur.idUser;";
+		String request = "SELECT * FROM Commande \r\n"
+				+ "JOIN Formation ON Commande.idFormation = Formation.idFormation \r\n"
+				+ "JOIN Utilisateur ON Commande.idUser = Utilisateur.idUser ;";
 		try (Statement statement = connection.createStatement()){
 			try (ResultSet rs = statement.executeQuery(request)){
 				while (rs.next()) {

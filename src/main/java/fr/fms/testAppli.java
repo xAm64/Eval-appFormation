@@ -82,5 +82,6 @@ public class testAppli {
 		Commande commandeDeManex = cDao.read(1);
 		System.out.println(commandeDeManex);
 		*/
+		//TestOK
 	}
 }
