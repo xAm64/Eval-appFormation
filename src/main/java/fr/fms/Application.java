@@ -91,7 +91,10 @@ public class Application {
 		String instruction = "Saisir l'ID de la formation que vous souhaitez commander";
 		int idFormation = writeNumber(instruction, scn);
 		FormationDao formationDao = new FormationDao();
-		Formation formation = formationDao.read(idFormation);
+		//Je créer une formation temporaire en utilisant la méthode read.
+		Formation f = formationDao.read(idFormation);
+		//je créer le formation commandée (avec toutes les données)
+		Formation formationCommandee = new Formation(idFormation, f.getTitre(), f.getPrix(), f.getDescription(), f.getLieu());
 		//récupére la class pour créer un utilisateur
 		CreateClient newClient = new CreateClient();
 		//récupére un nouvel utilisateur.
@@ -100,11 +103,12 @@ public class Application {
 		UtilisateurDao newUserDao = new UtilisateurDao();
 		//j'ajoute le client à la base
 		newUserDao.create(client);
+		Utilisateur clientCommandee = newClient.foundUser(client);
 		//je créer la commande
 		CommandeDao commandeDao = new CommandeDao();
 		//je construit la commande avec les jointures
-		CreateCommande createCommande = new CreateCommande(formation, client);
-		Commande commande = createCommande.createCommande(formation, client);
+		CreateCommande createCommande = new CreateCommande(formationCommandee, clientCommandee);
+		Commande commande = createCommande.createCommande(formationCommandee, clientCommandee);  //# crash ici (null pointer exeption, doit récupérer l'ID
 		//j'envoie la commande en BDD avec ses liaisons
 		commandeDao.create(commande);
 		

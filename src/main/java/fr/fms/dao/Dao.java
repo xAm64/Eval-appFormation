@@ -3,6 +3,8 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
+import fr.fms.entities.Utilisateur;
+
 public interface Dao<T> {
 	public static Connection connection = BddConnect.getConnection();
 	public static final Logger logger = Logger.getLogger(Dao.class.getName());
@@ -11,5 +13,4 @@ public interface Dao<T> {
 	public boolean update(T obj);	
 	public boolean delete(T obj);	
 	public ArrayList<T> readAll();
-	
 }

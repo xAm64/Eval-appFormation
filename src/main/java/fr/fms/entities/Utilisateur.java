@@ -20,10 +20,13 @@ public class Utilisateur {
 		this.email = email;
 	}
 	
-	//Getters et Sttters
+	//Getters et Setters
 	//ID
 	public int getIdUser() {
 		return idUser;
+	}
+	public void setIdUser(Integer id) {
+		this.idUser = id;
 	}
 	
 	//Noms

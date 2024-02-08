@@ -1,7 +1,10 @@
 package fr.fms;
 
 import java.sql.ClientInfoStatus;
+import java.util.ArrayList;
 import java.util.Scanner;
+
+import fr.fms.dao.UtilisateurDao;
 import fr.fms.entities.Utilisateur;
 
 public class CreateClient {
@@ -36,6 +39,22 @@ public class CreateClient {
 			}
 		}
 		return null;
+	}
+	
+	public Utilisateur foundUser(Utilisateur user) {
+		UtilisateurDao ud = new UtilisateurDao();
+		ArrayList<Utilisateur> users = ud.readAll();
+		try {
+			for (int i = (users.size()-1); i < 0; i--) {
+				Utilisateur x = users.get(i);
+				if (x.getEmail() == user.getEmail()) {
+					user.setIdUser(x.getIdUser());
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return user;
 	}
 
 }
