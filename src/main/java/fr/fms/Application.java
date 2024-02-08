@@ -65,7 +65,7 @@ public class Application {
 		try {
 			ArrayList<Formation> formations = formationDao.readAll();
 			for (Formation f: formations){
-				System.out.println("Id de la formation: "+f.getIdFormation()+", titre: "+f.getTitre()+", prix: "+f.getPrix()+", Description: "+f.getDescription()+", Lieu: "+f.getLieu()+".");
+				System.out.println("Id de la formation: "+f.getIdFormation()+", titre: "+f.getTitre()+", durée: "+f.getDuree()+"jours , Description: "+f.getDescription()+", Lieu: "+f.getLieu()+", prix : "+f.getPrix()+"€ .");
 			}
 		} catch (NullPointerException e) {
 			System.out.println("Cette formation n'existe pas");
@@ -83,7 +83,7 @@ public class Application {
 		//récupère les informations de la formation demandée.
 		Formation formation = formationDao.read(idFormation);
 		//affiche la formation demandée.
-		System.out.println("La formation numéro: "+formation.getIdFormation()+" est "+formation.getTitre()+" coûte "+formation.getPrix()+". Sa description est: "+formation.getDescription()+". Son lieu est: "+formation.getLieu()+".");
+		System.out.println("La formation de "+formation.getTitre()+" dure "+formation.getDuree()+" jours. Son contenue est : "+formation.getDescription()+". Son lieu est: "+formation.getLieu()+". Son prix est de : "+formation.getPrix()+" jours.");
 	}
 	
 	public static void commandFormation(Scanner scn) {
@@ -94,7 +94,7 @@ public class Application {
 		//Je créer une formation temporaire en utilisant la méthode read.
 		Formation f = formationDao.read(idFormation);
 		//je créer le formation commandée (avec toutes les données)
-		Formation formationCommandee = new Formation(idFormation, f.getTitre(), f.getPrix(), f.getDescription(), f.getLieu());
+		Formation formationCommandee = new Formation(idFormation, f.getTitre(), f.getPrix(), f.getDescription(), f.getLieu(), f.getDuree());
 		//récupére la class pour créer un utilisateur
 		CreateClient newClient = new CreateClient();
 		//récupére un nouvel utilisateur.

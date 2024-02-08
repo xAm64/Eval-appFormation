@@ -7,24 +7,27 @@ public class Formation {
 	private double prix;
 	private String description;
 	private String lieu;
+	private int duree;
 	
 	//Constructeur
 	//Complet
-	public Formation(int idFormation, String titre, double prix, String description, String lieu) {
+	public Formation(int idFormation, String titre, double prix, String description, String lieu, int duree) {
 		super();
 		this.idFormation = idFormation;
 		this.titre = titre;
 		this.prix = prix;
 		this.description = description;
 		this.lieu = lieu;
+		this.duree = duree;
 	}
 	//minimum
-	public Formation(String titre, double prix, String description, String lieu) {
+	public Formation(String titre, double prix, String description, String lieu, int duree) {
 		super();
 		this.titre = titre;
 		this.prix = prix;
 		this.description = description;
 		this.lieu = lieu;
+		this.duree = duree;
 	}
 	
 	//Getters et Setters
@@ -63,6 +66,14 @@ public class Formation {
 	}
 	public void setLieu(String lieu) {
 		this.lieu = lieu;
+	}
+	
+	//durée
+	public int getDuree() {
+		return this.duree;
+	}
+	public void setDuree(int duree) {
+		this.duree = duree;
 	}
 	
 }
